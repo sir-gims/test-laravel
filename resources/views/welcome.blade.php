@@ -26,8 +26,8 @@
                 <div class="form-group">
                     <label for="o-date">Order by Date:</label>
                     <select id="o-date" name="date">
-                        <option value="newest">Newest</option>
-                        <option value="oldest">Oldest</option>
+                        <option value="newest"> Newest First</option>
+                        <option value="oldest">Oldest First </option>
                     </select>
                 </div>
 
@@ -52,15 +52,12 @@
                     <th scope="col">id</th>
                     <th scope="col">Review</th>
                     <th scope="col">Review Text</th>
-                    <th scope="col">Likes</th>
-                    <th scope="col">No.Comments</th>
-                    <th scope="col">No.Shares</th>
                     <th scope="col">Rating</th>
                     <th scope="col">Reviews created on</th>
                     <th scope="col">Reviews created date</th>
                     <th scope="col">Reviews created unixtimestamp</th>
-                    <h4 style="color: gold"><b style="color: olive">Note:</b> other fields i did't fetch because only these fields
-                        are necessary to sort & filter.</h4>
+                    <h4 style="color: red"><b style="color: olive">Note:</b> other fields i did't fetch because only these fields
+                        are necessary to sort & filter. ‼️ ‼️</h4>
                 </tr>
                 </thead>
                 <tbody>
@@ -70,9 +67,6 @@
                     <th scope="row">{{$item['id']}}</th>
                     <td>{{$item['reviewText']}}</td>
                     <td>{{Illuminate\Support\Str::limit($item['reviewFullText'],20) }}</td>
-                    <td>{{$item['numLikes']}}</td>
-                    <td>{{$item['numComments']}}</td>
-                    <td>{{$item['numShares']}}</td>
                     <td>{{$item['rating']}}</td>
                     <td>{{$item['reviewCreatedOn']}}</td>
                     <td>{{$item['reviewCreatedOnDate']}}</td>
@@ -85,9 +79,6 @@
                             <th scope="row">{{$item['id']}}</th>
                             <td>{{$item['reviewText']}}</td>
                             <td>{{Illuminate\Support\Str::limit($item['reviewFullText'],20) }}</td>
-                            <td>{{$item['numLikes']}}</td>
-                            <td>{{$item['numComments']}}</td>
-                            <td>{{$item['numShares']}}</td>
                             <td>{{$item['rating']}}</td>
                             <td>{{$item['reviewCreatedOn']}}</td>
                             <td>{{$item['reviewCreatedOnDate']}}</td>
