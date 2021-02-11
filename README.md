@@ -5,9 +5,9 @@
 
 ### 2.cd into your project.
 
-### 4.Install Composer Dependencies.
+### 4.composer install
 
-### 5.Install NPM Dependencies
+### 5.npm install
 
 ### 6.npm run development
 
