@@ -18,11 +18,9 @@ class Autheapi
      */
     public function handle(Request $request, Closure $next)
     {
-
         $client = new \GuzzleHttp\Client();
         $request->clData = $client->request('GET',
-            'https://embedsocial.com/admin/v2/api/reviews?reviews_ref=0d44e0b0a245de6fc9651f870d8b4
-4efc4653184',
+            'https://embedsocial.com/admin/v2/api/reviews?reviews_ref=​0d44e0b0a245de6fc9651f870d8b44efc4653184',
             [
                 'headers' => [
                     'Accept' => 'application/json',
@@ -32,6 +30,9 @@ class Autheapi
             ]
         );
 
+//        $client = new \GuzzleHttp\Client();
+//        $request->clData = $client->request('GET',
+//            'https://jsonplaceholder.typicode.com/comments');
 
         return $next($request);
     }

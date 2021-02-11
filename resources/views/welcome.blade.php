@@ -1,9 +1,9 @@
 @include('partials.head')
     <div class="container row mt-5 mr-4">
-        {{$response->title}}
+        {{$json[1]['name']}}
         <div class="col-sm-3 mr-3">
             <h3>Filter Reviews:</h3>
-            <form action="">
+            <form method="get" action="{{route('filter')}}">
                 <div class="form-group">
                     <label for="o-rating">Order by Rating:</label>
                     <select id="o-rating" name="rating">
@@ -50,18 +50,34 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Review</th>
+                    <th scope="col">Review Text</th>
+                    <th scope="col">Likes</th>
+                    <th scope="col">No.Comments</th>
+                    <th scope="col">No.Shares</th>
+                    <th scope="col">Rating</th>
+                    <th scope="col">Reviews created on</th>
+                    <th scope="col">Reviews created date</th>
+                    <th scope="col">Reviews created unixtimestamp</th>
+                    <h4>other fields i did't fetch because only these fields
+                        are necessary to sort & filter.</h4>
                 </tr>
                 </thead>
                 <tbody>
+{{--                @foreach($json['reviews'] as $item)--}}
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+{{--                    <th scope="row">{{$item['id']}}</th>--}}
+{{--                    <td>{{$item['name']}}</td>--}}
+{{--                    <td>{{Illuminate\Support\Str::limit($item['body'],20) }}</td>--}}
+{{--                    <td>{{$item['email']}}</td>--}}
+                    <td>mdo</td>
+                    <td>mdo</td>
+                    <td>mdo</td>
+                    <td>mdo</td>
+                    <td>mdo</td>
+                    <td>mdo</td>
                 </tr>
+{{--                @endforeach--}}
                 </tbody>
             </table>
         </div>
