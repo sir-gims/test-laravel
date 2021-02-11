@@ -1,6 +1,6 @@
 @include('partials.head')
     <div class="container row mt-5 mr-4">
-        {{$json[1]['name']}}
+{{--        {{$reviews}}--}}
         <div class="col-sm-3 mr-3">
             <h3>Filter Reviews:</h3>
             <form method="get" action="{{route('filter')}}">
@@ -49,7 +49,7 @@
             <table class="table table-bordered mt-5 mr-3">
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">id</th>
                     <th scope="col">Review</th>
                     <th scope="col">Review Text</th>
                     <th scope="col">Likes</th>
@@ -59,25 +59,42 @@
                     <th scope="col">Reviews created on</th>
                     <th scope="col">Reviews created date</th>
                     <th scope="col">Reviews created unixtimestamp</th>
-                    <h4>other fields i did't fetch because only these fields
+                    <h4 style="color: gold"><b style="color: olive">Note:</b> other fields i did't fetch because only these fields
                         are necessary to sort & filter.</h4>
                 </tr>
                 </thead>
                 <tbody>
-{{--                @foreach($json['reviews'] as $item)--}}
+                @if(isset($reviews))
+                @foreach($reviews as $item)
                 <tr>
-{{--                    <th scope="row">{{$item['id']}}</th>--}}
-{{--                    <td>{{$item['name']}}</td>--}}
-{{--                    <td>{{Illuminate\Support\Str::limit($item['body'],20) }}</td>--}}
-{{--                    <td>{{$item['email']}}</td>--}}
-                    <td>mdo</td>
-                    <td>mdo</td>
-                    <td>mdo</td>
-                    <td>mdo</td>
-                    <td>mdo</td>
-                    <td>mdo</td>
+                    <th scope="row">{{$item['id']}}</th>
+                    <td>{{$item['reviewText']}}</td>
+                    <td>{{Illuminate\Support\Str::limit($item['reviewFullText'],20) }}</td>
+                    <td>{{$item['numLikes']}}</td>
+                    <td>{{$item['numComments']}}</td>
+                    <td>{{$item['numShares']}}</td>
+                    <td>{{$item['rating']}}</td>
+                    <td>{{$item['reviewCreatedOn']}}</td>
+                    <td>{{$item['reviewCreatedOnDate']}}</td>
+                    <td>{{$item['reviewCreatedOnTime']}}</td>
                 </tr>
-{{--                @endforeach--}}
+                @endforeach
+                @elseif (isset($filtered))
+                    @foreach($filtered as $item)
+                        <tr>
+                            <th scope="row">{{$item['id']}}</th>
+                            <td>{{$item['reviewText']}}</td>
+                            <td>{{Illuminate\Support\Str::limit($item['reviewFullText'],20) }}</td>
+                            <td>{{$item['numLikes']}}</td>
+                            <td>{{$item['numComments']}}</td>
+                            <td>{{$item['numShares']}}</td>
+                            <td>{{$item['rating']}}</td>
+                            <td>{{$item['reviewCreatedOn']}}</td>
+                            <td>{{$item['reviewCreatedOnDate']}}</td>
+                            <td>{{$item['reviewCreatedOnTime']}}</td>
+                        </tr>
+                    @endforeach
+                @endif
                 </tbody>
             </table>
         </div>
